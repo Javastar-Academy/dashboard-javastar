@@ -1,14 +1,3 @@
-/* Define a beautiful color palette */
-:host {
-    --primary-color: #4CAF50;
-    --secondary-color: #ff9800;
-    --accent-color: #9c27b0;
-    --danger-color: #f44336;
-    --background-color: #f5f5f5;
-    --text-color: #333;
-    --border-color: #ddd;
-}
-
 .profile-container {
     max-width: 700px;
     margin: 100px auto;

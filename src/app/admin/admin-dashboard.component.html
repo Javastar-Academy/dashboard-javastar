@@ -1,0 +1,52 @@
+<!-- Overlay for menu -->
+<div id="menu-overlay" *ngIf="menuOpen" (click)="toggleMenu()"></div>
+
+<!-- Menu toggle -->
+<div id="menu-toggle" [ngClass]="{'closed': !menuOpen, 'open-menu': menuOpen}" (click)="toggleMenu()">
+    <i [class.fa-bars]="!menuOpen" [class.fa-times]="menuOpen"></i>
+</div>
+
+<!-- Main header content -->
+<header id="main-header">
+    <!-- Side navigation with profile and navigation links -->
+    <nav id="sidenav">
+        <div id="sidenav-header" *ngIf="profile">
+            <div id="profile-picture">
+                <img [src]="profile.photoUrl" alt="{{profile.firstName}}"/>
+            </div>
+            <a href="#" id="profile-link">{{ profile.firstName + " " + profile.lastName}}</a>
+        </div>
+        <ul id="main-nav">
+            <li *ngFor="let item of menuItems" [class.active]="router.url === item.href" (click)="setActive(item)">
+                <a [routerLink]="item.href">
+                    <fa-icon [icon]="item.icon"></fa-icon>
+                    {{ item.name }}
+                </a>
+            </li>
+        </ul>
+        <div id="account-actions">
+            <a href="/admin/analytics" data-title="Home">
+                <fa-icon [icon]="faHome"></fa-icon>
+            </a>
+            <a href="/dashboard/inbox" id="messages" data-title="Messages" data-newmessages="1">
+                <fa-icon [icon]="faInbox"></fa-icon>
+            </a>
+            <a href="/dashboard/profile" data-title="Settings">
+                <fa-icon [icon]="faCog"></fa-icon>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Admin toggle between available courses -->
+    <div id="course-toggle">
+        <label for="course-select">Select Course:</label>
+        <select id="course-select" (change)="setCurrentCourse($event)">
+            <option *ngFor="let course of courses" [value]="course" [selected]="course === currentCourse">
+                Course {{ course }}
+            </option>
+        </select>
+    </div>
+
+    <div id="header_logo" [class.hidden]="headerLogoHidden">
+    </div>
+</header>

@@ -12,16 +12,24 @@ import {DashboardCoursesComponent} from "./components/courses/dashboard-courses.
 import {DashboardHomeComponent} from "./components/dashboard-home/dashboard-home.component";
 import {TestViewComponent} from "./components/test-view/test-view.component";
 import {ProfileComponent} from "./components/profile/profile.component";
-import {DashboardFooterComponent} from "./components/dashboard-footer/dashboard-footer.component";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {FormsModule} from "@angular/forms";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
+import { AdminHomeworkComponent } from './admin/homework/admin-homework.component';
+import { AdminAnalyticsComponent } from './admin/analytics/admin-analytics.component';
+import { AdminCoursesComponent } from './admin/courses/admin-courses.component';
+import {AdminDashboardComponent} from "./admin/admin-dashboard.component";
+import {AdminTestsComponent} from "./admin/tests/admin-tests.component";
+import {AdminGradesComponent} from "./admin/grades/admin-grades.component";
+import {AdminDocumentationComponent} from "./admin/documentation/admin-documentation.component";
 
 @NgModule({
   declarations: [
+    AdminDashboardComponent,
     DashboardComponent,
+    DocumentationComponent,
     TestsComponent,
     DocumentationComponent,
     GradesComponent,
@@ -29,7 +37,13 @@ import {RippleModule} from "primeng/ripple";
     DashboardHomeComponent,
     TestViewComponent,
     ProfileComponent,
-    DashboardFooterComponent
+    AdminHomeworkComponent,
+    AdminAnalyticsComponent,
+    AdminCoursesComponent,
+    AdminDashboardComponent,
+    AdminTestsComponent,
+    AdminGradesComponent,
+    AdminDocumentationComponent
   ],
 
   imports: [

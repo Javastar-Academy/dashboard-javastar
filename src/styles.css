@@ -6,6 +6,58 @@ body {
 
 
 :root {
+  /*side menu*/
+  --side-menu-selected: #ef8700;
+  --side-menu-bg: #555;
+  --side-menu-links-color: #dac796;
+
+  /*tests */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --ghost-white: #ECEFF1;
+  --bright-blue: #3498DB;
+  --past-tests: #E0E0E0;
+  --past-tests-left: #7F8C8D;
+  --current-tests: #D4E6F1;
+  --current-tests-left: #2980B9;
+  --future-tests: #ECF0F1;
+  --tests-hover: #FAFAFA;
+  --grade-display: #16A085;
+  --disabled-button: #BDC3C7;
+  --attempts-left: #95A5A6;
+
+  /* test view */
+  --answer-bg: #007BFF;
+  --confirm-ans-button: #c82333;
+  --confirm-ans-hover: #dc3545;
+
+  --primary-color: #4CAF50;
+  --secondary-color: #ff9800;
+  --accent-color: #9c27b0;
+  --danger-color: #f44336;
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --border-color: #ddd;
+
+  --color-primary: #3498db; /* Primary Blue */
+  --color-secondary: #2c3e50; /* Dark Gray */
+  --color-background: #ecf0f1; /* Light Gray */
+  --color-text: #2c3e50; /* Dark Gray */
+  --color-progress-bg: #bdc3c7; /* Mid Gray */
+  --color-table-header-bg: #34495e; /* Darker Gray */
+  --color-table-row-bg: #ecf0f1; /* Light Gray */
+  --color-table-row-hover-bg: #bdc3c7; /* Mid Gray */
+
+  --color-test-bg: green;
+  --color-homework-bg: green;
+  --color-final-project-bg: green;
+  --color-extra-jobs-bg: green;
+
+  --white: #ffffff;
+  --button-blue: #007bff;
+  --button-hover-blue: #0056b3;
+  --item-hover: #f9f9f9;
+  --border-documentation: #ddd;
+
     --text-medium-reguler: 'Poppins';
     --font-radio-canada: "Radio Canada";
 

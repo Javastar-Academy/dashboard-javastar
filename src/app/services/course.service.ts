@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BehaviorSubject, catchError, map, Observable, throwError} from "rxjs";
 import {Pdf, Video} from "../models/Video";
@@ -15,7 +15,8 @@ export class CourseService {
   currentCourse$ = this.currentCourseSource.asObservable();
   private baseUrl: string = environment.baseUrl
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getCourseList(): Observable<Course[]> {
     const courseListUrl = `${this.baseUrl}/tova/allCourses`;
@@ -35,9 +36,9 @@ export class CourseService {
     const headers = this.buildHeadersWithToken();
     return this.httpClient.get<Video[]>
     (`${this.baseUrl}/api/videos/course/${courseId}`, {headers})
-        .pipe(
-            catchError(this.handleError)
-        );
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getPdfsByCourse(courseId: string): Observable<Pdf[]> {
@@ -60,6 +61,6 @@ export class CourseService {
   }
 
   private getToken(): string {
-      return localStorage.getItem('jwtToken') || '';
-    }
+    return localStorage.getItem('jwtToken') || '';
+  }
 }

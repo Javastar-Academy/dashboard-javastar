@@ -1,14 +1,3 @@
-:host {
-    --color-primary: #3498db; /* Primary Blue */
-    --color-secondary: #2c3e50; /* Dark Gray */
-    --color-background: #ecf0f1; /* Light Gray */
-    --color-text: #2c3e50; /* Dark Gray */
-    --color-progress-bg: #bdc3c7; /* Mid Gray */
-    --color-table-header-bg: #34495e; /* Darker Gray */
-    --color-table-row-bg: #ecf0f1; /* Light Gray */
-    --color-table-row-hover-bg: #bdc3c7; /* Mid Gray */
-}
-
 .grades-container {
     display: flex;
     flex-direction: column;
