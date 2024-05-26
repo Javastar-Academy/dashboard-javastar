@@ -4,6 +4,7 @@ import { VideoService } from '../../services/video.service';
 import { Video } from '../../models/Video';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import {AwsService} from "../../services/s3-upload-service.service.spec";
 
 @Component({
   selector: 'app-admin-courses',
@@ -13,12 +14,20 @@ import { Router } from '@angular/router';
 export class AdminCoursesComponent implements OnInit, OnDestroy {
   videos: Video[] = [];
   selectedCourse: Video | null = null;
+  newVideo: Partial<Video> = { title: '', description: '', url: '' };
+  selectedFile: File | null = null;
+  thumbnailFile: File | null = null;
+  playingVideoUrl: string | null = null;
 
   private currentCourse: string;
   private courseSubscription: Subscription;
-  selectedFile: File | null = null;
 
-  constructor(private videoService: VideoService, private courseService: CourseService, private router: Router) {}
+  constructor(
+    private videoService: VideoService,
+    private courseService: CourseService,
+    private awsService: AwsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.courseSubscription = this.courseService.currentCourse$.subscribe(
@@ -48,38 +57,52 @@ export class AdminCoursesComponent implements OnInit, OnDestroy {
     );
   }
 
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
+  onFileSelected(event: any, type: string): void {
+    if (type === 'video') {
+      this.selectedFile = event.target.files[0];
+    } else if (type === 'thumbnail') {
+      this.thumbnailFile = event.target.files[0];
+    }
   }
 
   uploadCourse(): void {
     if (this.selectedFile) {
-      const newCourse = {
-        title: 'New Course',
-        description: 'Course Description',
-        instructor: 'Instructor Name'
-      };
-      this.videoService.uploadCourse(newCourse, this.selectedFile).subscribe(
-        course => {
-          this.videos.push(course);
-          alert('Course uploaded successfully');
-        },
-        error => console.error('Error uploading course:', error)
-      );
+      this.uploadFile(this.selectedFile)
+        .then(videoUrl => {
+          this.newVideo.url = videoUrl;
+          this.newVideo.courseId = this.currentCourse;
+          if (this.thumbnailFile) {
+            return this.uploadFile(this.thumbnailFile).then(thumbnailUrl => {
+              this.newVideo.thumbnail = thumbnailUrl;
+              this.saveCourse();
+            });
+          } else {
+            return this.saveCourse();
+          }
+        })
+        .catch(error => console.error('Error uploading video:', error));
     } else {
-      alert('Please select a file first');
+      alert('Please select a video file first');
     }
   }
 
-  modifyCourse(): void {
-    if (this.selectedCourse) {
-      this.videoService.modifyCourse(this.selectedCourse).subscribe(
-        () => {
-          alert('Course modified successfully');
-        },
-        error => console.error('Error modifying course:', error)
+  uploadFile(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.awsService.uploadFile(file).subscribe(
+        response => resolve(response),
+        error => reject(error)
       );
-    }
+    });
+  }
+
+  saveCourse(): void {
+    this.videoService.uploadCourse(this.newVideo).subscribe(
+      course => {
+        this.videos.push(course);
+        alert('Course uploaded successfully');
+      },
+      error => console.error('Error uploading course:', error)
+    );
   }
 
   deleteCourse(): void {
@@ -97,10 +120,37 @@ export class AdminCoursesComponent implements OnInit, OnDestroy {
 
   selectCourse(course: Video): void {
     this.selectedCourse = course;
+    this.getPresignedUrl(course.url);
   }
 
-  editCourse(course: Video | null | undefined): void {
-    // Logic to edit the selected course
-    alert('Edit Course clicked');
+  getPresignedUrl(fileName: string): void {
+    this.awsService.getPresignedUrl(fileName).subscribe(
+      url => {
+        console.log('Presigned URL:', url); // Debug log to check the URL
+        this.playingVideoUrl = url;
+      },
+      error => {
+        console.error('Error getting presigned URL:', error);
+        this.playingVideoUrl = null;
+      }
+    );
+  }
+
+
+  editCourse(course: Video): void {
+    this.newVideo = { ...course };
+  }
+
+  saveEditedCourse(): void {
+    if (this.newVideo && this.selectedCourse) {
+      this.videoService.modifyCourse({ ...this.selectedCourse, ...this.newVideo }).subscribe(
+        () => {
+          this.getCourses(this.currentCourse);
+          this.selectedCourse = null;
+          alert('Course updated successfully');
+        },
+        error => console.error('Error updating course:', error)
+      );
+    }
   }
 }

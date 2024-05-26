@@ -3,6 +3,8 @@
   background-color: #f4f4f9;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-left: 350px;
+  margin-top: 100px;
 }
 
 h2, h3 {
@@ -32,28 +34,43 @@ button.danger {
   color: white;
 }
 
-.courses-list {
-  margin-top: 20px;
-}
-
-.courses-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.courses-list li {
-  padding: 10px;
+.form-container {
   background-color: #fff;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.course-details {
-  margin-top: 20px;
   padding: 20px;
-  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+  background-color: #f0f0f0;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.video-info {
+  flex: 1;
+}
+
+.video-info h5 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.video-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
 }
