@@ -1,0 +1,23 @@
+<admin-app-dashboard></admin-app-dashboard>
+
+<div class="admin-documentation">
+  <div>
+    <h1>Admin Courses</h1>
+
+    <div>
+      <label for="fileInput">Select video file:</label>
+      <input type="file" id="fileInput" (change)="onFileSelected($event)">
+    </div>
+
+    <button (click)="uploadCourse()">Upload Course</button>
+
+    <ul>
+      <li *ngFor="let video of videos" (click)="selectCourse(video)">
+        {{ video.title }}
+      </li>
+    </ul>
+
+    <button (click)="editCourse(selectedCourse)">Edit Course</button>
+    <button (click)="deleteCourse()">Delete Course</button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.admin-analytics {
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: var(--primary-color);
+}
+
+.chart-container {
+  margin-top: 20px;
+}

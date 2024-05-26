@@ -1,0 +1,80 @@
+<admin-app-dashboard></admin-app-dashboard>
+
+<div class="container admin-tests">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="form-container">
+        <div class="question-form">
+          <h2>Manage Questions</h2>
+          <input [(ngModel)]="newQuestion.question" class="form-control mb-3" placeholder="New Question" />
+          <div class="answers">
+            <div *ngFor="let answer of newQuestion.answers; let i = index" class="form-group">
+              <div class="input-group mb-2">
+                <input type="text" [(ngModel)]="answer.answerText" class="form-control" placeholder="Answer {{i + 1}}" />
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <input type="radio" [(ngModel)]="newQuestion.correctAnswerIndex" [value]="i" (change)="answer.correctAnswer = true"/> Correct
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="week-selection mb-3">
+            <div *ngFor="let week of availableWeeks" (click)="selectWeek(week)" [class.selected]="newQuestion.weekNumber === week" class="week-card">
+              Week {{week}}
+            </div>
+          </div>
+          <button class="btn btn-primary mb-3" (click)="uploadQuestion()" [disabled]="!isCorrectAnswerSelected()">Add Question</button>
+          <input type="text" class="form-control mb-3" placeholder="Search questions..." [(ngModel)]="searchQuery" (input)="onSearchChange(searchQuery)" />
+        </div>
+
+        <div class="weekly-test-form">
+          <h2>Manage Weekly Tests</h2>
+          <input [(ngModel)]="newWeeklyTest.name" class="form-control mb-2" placeholder="Test Name" />
+          <input [(ngModel)]="newWeeklyTest.description" class="form-control mb-2" placeholder="Description" />
+          <input [(ngModel)]="newWeeklyTest.availableDate" class="form-control mb-2" placeholder="Available Date" type="date" />
+          <input [(ngModel)]="newWeeklyTest.endDate" class="form-control mb-2" placeholder="End Date" type="date" />
+          <input [(ngModel)]="newWeeklyTest.week" class="form-control mb-2" placeholder="Week Number" type="number" />
+          <button class="btn btn-primary mb-3" (click)="addWeeklyTest()">Add Weekly Test</button>
+        </div>
+      </div>
+
+      <div *ngIf="questions.length === 0" class="alert alert-info">No questions available.</div>
+      <div *ngIf="weeklyTests.length === 0" class="alert alert-info">No weekly tests available.</div>
+
+      <div *ngFor="let weeklyTest of weeklyTests" class="card mb-3">
+        <div class="card-header" (click)="toggleQuestions(weeklyTest)">
+          Week {{ weeklyTest.week }}: {{ weeklyTest.name }}
+          <button class="btn btn-outline-secondary btn-sm ml-2" (click)="randomizeQuestions(weeklyTest)">Randomize Questions</button>
+          <button class="btn btn-outline-secondary btn-sm ml-2" (click)="editWeeklyTest(weeklyTest)">Edit</button>
+        </div>
+        <div *ngIf="weeklyTest.showQuestions" class="card-body">
+          <div *ngFor="let question of filteredQuestions" [hidden]="question.weekNumber !== weeklyTest.week" class="question-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <span>{{ question.question }}</span>
+              <div>
+                <button class="btn btn-success btn-sm" (click)="activateQuestion(question)" [disabled]="question.active">Activate</button>
+                <button class="btn btn-warning btn-sm" (click)="deactivateQuestion(question)" [disabled]="!question.active">Deactivate</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteQuestion(question)">Delete</button>
+              </div>
+            </div>
+            <div class="answers mt-2">
+              <div *ngFor="let answer of question.answers; let i = index" [class.correct]="answer.correctAnswer">
+                <strong>Answer {{i + 1}}:</strong> {{ answer.answerText }} <span *ngIf="answer.correctAnswer">(Correct)</span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="weeklyTest.editing">
+            <input [(ngModel)]="weeklyTest.name" class="form-control mb-2" placeholder="Test Name" />
+            <input [(ngModel)]="weeklyTest.week" class="form-control mb-2" placeholder="Week" />
+            <input [(ngModel)]="weeklyTest.description" class="form-control mb-2" placeholder="Description" />
+            <input [(ngModel)]="weeklyTest.availableDate" class="form-control mb-2" placeholder="Available Date" type="date" />
+            <input [(ngModel)]="weeklyTest.endDate" class="form-control mb-2" placeholder="End Date" type="date" />
+            <button class="btn btn-primary mb-2" (click)="updateWeeklyTest(weeklyTest)">Save</button>
+            <button class="btn btn-secondary mb-2" (click)="cancelEdit(weeklyTest)">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

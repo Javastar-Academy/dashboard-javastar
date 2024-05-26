@@ -1,0 +1,15 @@
+<admin-app-dashboard></admin-app-dashboard>
+
+<div class="admin-homework">
+  <h2>Manage Homework</h2>
+  <button class="primary" (click)="assignHomework()">Assign Homework</button>
+  <button class="secondary" (click)="modifyHomework()">Modify Homework</button>
+  <button class="danger" (click)="deleteHomework()">Delete Homework</button>
+
+  <div class="homework-list">
+    <h3>Homework Assignments</h3>
+    <ul>
+      <li *ngFor="let homework of homeworks">{{ homework.title }}</li>
+    </ul>
+  </div>
+</div>

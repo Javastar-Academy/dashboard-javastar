@@ -27,7 +27,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@types/jwt-decode": "^3.1.0",
     "aos": "^2.3.4",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "jwt-decode": "^4.0.0",
     "ngx-intersection-observer": "^1.0.13",

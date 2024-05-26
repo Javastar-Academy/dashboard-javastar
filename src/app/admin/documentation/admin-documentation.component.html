@@ -1,0 +1,15 @@
+<admin-app-dashboard></admin-app-dashboard>
+
+<div class="admin-documentation">
+  <h2>Manage Documentation</h2>
+  <button class="primary" (click)="addDocumentation()">Add Documentation</button>
+  <button class="secondary" (click)="modifyDocumentation()">Modify Documentation</button>
+  <button class="danger" (click)="deleteDocumentation()">Delete Documentation</button>
+
+  <div class="documentation-list">
+    <h3>Documentation</h3>
+    <ul>
+      <li *ngFor="let doc of documentation">{{ doc.title }}</li>
+    </ul>
+  </div>
+</div>

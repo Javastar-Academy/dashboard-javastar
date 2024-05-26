@@ -3,8 +3,9 @@ export interface Question {
     id: number;
     question: string;
     answers: string[];
+    active: boolean;
+    weekNumber: number;
 }
-
 export interface Test {
     id: number;
     questions: Question[]
@@ -12,6 +13,8 @@ export interface Test {
 }
 
 export interface WeeklyTest {
+  editing: boolean;
+  showQuestions: boolean;
     id: number;
     name: string;
     description: string;
@@ -21,4 +24,19 @@ export interface WeeklyTest {
     week: number;
     remainingAttempts: number
     grade: number
+
+}
+
+
+export interface AdminQuestion {
+  id: number;
+  question: string;
+  answers: Answer[];
+  active: boolean;
+  weekNumber: number;
+}
+
+export interface Answer {
+  correctAnswer: boolean;
+  answerText: string;
 }

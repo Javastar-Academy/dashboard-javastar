@@ -1,0 +1,15 @@
+<admin-app-dashboard></admin-app-dashboard>
+
+<div class="admin-grades">
+  <h2>Manage Grades</h2>
+  <button class="primary" (click)="addGrade()">Add Grade</button>
+  <button class="secondary" (click)="modifyGrade()">Modify Grade</button>
+  <button class="danger" (click)="deleteGrade()">Delete Grade</button>
+
+  <div class="grades-list">
+    <h3>Grades</h3>
+    <ul>
+      <li *ngFor="let grade of grades">{{ grade.studentName }}: {{ grade.value }}</li>
+    </ul>
+  </div>
+</div>
