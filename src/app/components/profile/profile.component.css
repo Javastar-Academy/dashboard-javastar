@@ -1,0 +1,105 @@
+/* Define a beautiful color palette */
+:host {
+    --primary-color: #4CAF50;
+    --secondary-color: #ff9800;
+    --accent-color: #9c27b0;
+    --danger-color: #f44336;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
+.profile-container {
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.profile-header:hover .profile-picture {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--border-color);
+}
+
+.profile-details {
+    text-align: left;
+}
+
+.profile-details h3 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.profile-detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-detail-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.value {
+    color: var(--text-color);
+}
+
+.profile-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-actions button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.profile-actions button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.profile-actions .danger {
+    background-color: var(--danger-color);
+}
+
+.profile-actions .danger:hover {
+    background-color: darken(var(--danger-color), 10%);
+}
+
+input.value {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px;
+    color: var(--text-color);
+    width: 100%;
+}

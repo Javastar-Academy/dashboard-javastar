@@ -1,0 +1,18 @@
+<div class="test-container">
+    <div class="test-header">
+        <div class="timer">Time left: {{ minutes }}:{{ seconds | number: '2.0' }}</div>
+        <h2>Question {{currentQuestionIndex + 1}} of {{currentTest.questions.length}}</h2>
+    </div>
+    <div class="question-container">
+        <p class="question-text">{{ currentQuestion?.question }}</p>
+        <div class="answers">
+            <button *ngFor="let answer of currentQuestion?.answers; let i = index"
+                    (click)="selectAnswer(answer)"
+                    [class.selected]="answer === selectedAnswer"
+                    class="answer-button">
+                {{ answer }}
+            </button>
+        </div>
+    </div>
+    <button (click)="confirmAnswer()" class="confirm-button">Confirm</button>
+</div>

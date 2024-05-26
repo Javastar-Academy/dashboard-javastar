@@ -1,1 +1,361 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    line-height: normal;
+    font-family: 'Poppins', "Helvetica Neue", sans-serif
+}
+
+
+:root {
+    --text-medium-reguler: 'Poppins';
+    --font-radio-canada: "Radio Canada";
+
+    --text-medium-reguler-size: 0.88rem;
+    --text-large-reguler-size: 1rem;
+    --text-xtra-larger-semibold-size: 1.25rem;
+    --font-size-5xl: 1.5rem;
+    --font-size-lg: 1.13rem;
+    --font-size-34xl-9: 3.37rem;
+    --heading-h1-size: 4.38rem;
+    --heading-h3-size: 2.75rem;
+    --font-size-21xl: 2.5rem;
+    --font-size-31xl: 3.13rem;
+    --font-size-11xl: 1.88rem;
+
+    --neutral-color-white: #fff;
+    --main-text: #0f1017;
+    --text-on-white: #57585D;
+    --main: #dca20e;
+    --text-on-black: #cfcfd1;
+    --color-darkgray-100: #b4b4b4;
+    --color-darkgray-200: #ababab;
+    --color-darkgray-300: #a6a6a6;
+    --neutral-color-0: #e7e7e8;
+    --color-gainsboro-100: #e6e6e6;
+    --color-whitesmoke: #f8f8f8;
+    --neutral-color-500: #57585d;
+    --primary-color-800: #e14817;
+    --color-black: #000;
+
+
+    --gap-21xl: 2.5rem;
+    --gap-5xl: 1.5rem;
+    --gap-base: 1rem;
+    --gap-9xs: 0.25rem;
+    --gap-61xl: 5rem;
+    --gap-41xl: 3.75rem;
+    --gap-37xl: 3.5rem;
+    --gap-5xs: 0.5rem;
+    --gap-3xs: 0.63rem;
+    --gap-xs: 0.75rem;
+
+    --padding-61xl: 5rem;
+    --padding-21xl: 2.5rem;
+    --padding-xs: 0.75rem;
+    --padding-base: 1rem;
+    --padding-28xl: 2.94rem;
+    --padding-19xl-5: 2.41rem;
+    --padding-5xl: 1.5rem;
+    --padding-67xl-5: 5.41rem;
+    --padding-3xs: 0.63rem;
+    --padding-9xs: 0.25rem;
+    --padding-0: 0rem;
+    --padding-5xs: 0.5rem;
+    --padding-16xl: 2.19rem;
+    --padding-7xl: 1.63rem;
+
+    --br-5xs: 8px;
+    --br-xl: 20px;
+    --br-9xs: 4px;
+    --br-xs-5: 11.5px;
+    --br-14xl: 33px;
+    --br-3xs: 10px;
+    --br-11xs: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--neutral-color-white);
+}
+
+p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.p-white {
+    color: var(--text-on-black);
+}
+
+.p-gray {
+    color: var(--text-on-white);
+    margin: 0;
+}
+
+.width {
+    width: 100%;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.span-big {
+    color: var(--main-text);
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.p-main-text {
+    color: var(--main-text);
+    font-size: 16px;
+    line-height: 1.6rem;
+}
+
+.p-main-title {
+    color: var(--main-text);
+    font-size: 18px;
+    line-height: 1.6rem;
+}
+
+.p-small {
+    font-size: 16px;
+}
+
+h1 {
+    line-height: 5.5rem;
+    font-weight: 600;
+    font-size: 70px;
+    margin: 0;
+}
+
+h2 {
+    color: var(--main-text);
+    font-size: 44px;
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+    font-size: 44px;
+    font-weight: 600;
+}
+
+
+app-newsletter {
+    width: 100%;
+}
+
+.h2-white {
+    color: white;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.max {
+    width: 100%;
+    height: 100%;
+}
+
+
+.row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.row-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.row-center-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.row-center-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.row-between-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row-between-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.row-between-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.row-evenly-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.row-evenly-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.row-evenly-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.row-start-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.row-start-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.row-around-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.row-around-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.column-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.column-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.column-center-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.column-center-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.column-between-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column-between-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.column-between-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.column-evenly-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.column-evenly-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.column-evenly-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.column-start-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (max-width: 540px) {
+    h1 {
+        font-size: 44px;
+        line-height: 1.5em;
+    }
+    p {
+        font-size: 16px;
+    }
+}
+

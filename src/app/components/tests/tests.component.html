@@ -1,0 +1,25 @@
+<app-dashboard></app-dashboard>
+
+<section id="content">
+    <header id="content-header">
+        Javastar - Java Level 1
+    </header>
+    <ul class="week-list">
+        <li *ngFor="let weeklyTest of weeklyTests" [class]="weeklyTest.status">
+            <div class="week-content">
+                <span class="week-date">Week {{ weeklyTest.week }}: {{ weeklyTest.name }}</span>
+                <p class="week-description">{{ weeklyTest.description }}</p>
+            </div>
+            <div class="grade-display">
+                <span>Grade: {{weeklyTest.grade}}</span>
+            </div>
+            <div class="test-actions">
+                <button (click)="startTest(weeklyTest)"
+                        [disabled]="weeklyTest.remainingAttempts === 0 || weeklyTest.status === 'future'">
+                    Start Test
+                </button>
+                <span class="attempts-info">Attempts left: {{ weeklyTest.remainingAttempts }}</span>
+            </div>
+        </li>
+    </ul>
+</section>

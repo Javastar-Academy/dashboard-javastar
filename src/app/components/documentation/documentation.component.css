@@ -1,0 +1,88 @@
+.documentation-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 80%; /* Adjusted for better alignment */
+    padding: 150px 50px 50px 350px;
+    max-width: 1000px
+
+}
+
+.pdf-viewer {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.pdf-viewer iframe {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pdf-viewer button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pdf-viewer button:hover {
+    background-color: #0056b3;
+}
+
+.document-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.document-list h3 {
+    margin-bottom: 1rem;
+}
+
+.document-item {
+    display: flex;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.document-item:hover {
+    background-color: #f9f9f9;
+}
+
+.thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 1rem;
+    border-radius: 4px;
+}
+
+.document-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.document-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.document-info p {
+    margin: 0.5rem 0 0;
+    color: #666;
+}

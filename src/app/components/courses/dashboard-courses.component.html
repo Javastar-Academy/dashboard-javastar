@@ -1,0 +1,29 @@
+<app-dashboard></app-dashboard>
+
+<div class="main-content">
+    <!-- Video Player -->
+    <div class="video-player" *ngIf="selectedVideo">
+        <video #videoPlayer controls [src]="selectedVideo.url" aria-label="Video Player">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-item"(click)="downloadPdf(selectedVideo.pdf.url)">
+            <img [src]="selectedVideo.pdf.thumbnail" alt="{{ selectedVideo.pdf.title }}" class="thumbnail" />
+            <div class="video-info">
+                <h4>{{ selectedVideo.pdf.title }}</h4>
+                <p>{{ selectedVideo.pdf.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video List -->
+    <div class="video-list">
+        <h3>Videos</h3>
+        <div *ngFor="let video of videos" class="video-item" (click)="selectVideo(video)" tabindex="0" aria-label="Select Video">
+            <img [src]="video.thumbnail" alt="{{ video.title }}" class="thumbnail" />
+            <div class="video-info">
+                <h4>{{ video.title }}</h4>
+                <p>{{ video.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>

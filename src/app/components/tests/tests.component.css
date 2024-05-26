@@ -1,0 +1,137 @@
+
+
+
+/*#content {*/
+/*    font-family: Arial, sans-serif;*/
+/*    margin: 20px 20px 0;*/
+/*    background-color: #f9f9f9;*/
+/*    padding: 150px 50px 50px 350px;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 2px 4px rgba(0,0,0,0.1);*/
+/*}*/
+
+#content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 80%; /* Adjusted for better alignment */
+    padding: 150px 50px 50px 350px;
+}
+
+#content-header {
+    font-size: 28px;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.week-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.week-item, .past, .current, .future {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #ECEFF1;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-left: 5px solid #3498DB; /* Brighter default color */
+    transition: transform 0.3s ease;
+}
+
+.past {
+    background-color: #E0E0E0;
+    border-left-color: #7F8C8D;
+}
+
+.current {
+    background-color: #D4E6F1;
+    border-left-color: #2980B9;
+}
+
+.future {
+    background-color: #ECF0F1;
+    border-left-color: #3498DB;
+}
+
+.week-item:hover, .past:hover, .current:hover, .future:hover {
+    transform: translateY(-5px); /* Add a subtle lifting effect */
+    background-color: #FAFAFA;
+}
+
+.week-content {
+    flex: 2; /* Gives more space to content */
+}
+
+.week-date {
+    font-weight: bold;
+    font-size: 20px;
+    color: #34495E;
+}
+
+.week-description {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #7F8C8D;
+}
+
+.grade-display {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    color: #16A085;
+    font-weight: bold;
+}
+
+.test-actions {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures spacing is distributed */
+    margin-top: 10px;
+    padding-right: 20px; /* Adds padding to prevent flush alignment with container edge */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498DB;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Add margin to separate from the attempts info */
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+button:disabled {
+    background-color: #BDC3C7;
+    cursor: default;
+}
+
+.attempts-info {
+    font-size: 14px;
+    color: #95A5A6;
+    margin-left: 10px; /* Adds some space between the button and this text */
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+
+/* Responsive Design Adjustment */
+@media (max-width: 600px) {
+    button {
+        padding: 8px 16px; /* Smaller padding on smaller screens */
+        font-size: 14px; /* Smaller font size on smaller screens */
+    }
+
+    .attempts-info {
+        font-size: 12px; /* Smaller text on smaller screens */
+    }
+}

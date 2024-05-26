@@ -1,0 +1,22 @@
+<app-dashboard></app-dashboard>
+<div class="documentation-container">
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- PDF Viewer -->
+        <div class="pdf-viewer" *ngIf="selectedPdf">
+            <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(selectedPdf.url)" width="100%" height="600px"></iframe>
+        </div>
+
+        <!-- Document List -->
+        <div class="document-list">
+            <h3>Documents</h3>
+            <div *ngFor="let pdf of pdfs" class="document-item" (click)="selectPdf(pdf)">
+                <img [src]="pdf.thumbnail" alt="{{ pdf.title }}" class="thumbnail" />
+                <div class="document-info">
+                    <h4>{{ pdf.title }}</h4>
+                    <p>{{ pdf.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

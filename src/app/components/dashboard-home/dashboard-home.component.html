@@ -1,0 +1,131 @@
+<app-dashboard></app-dashboard>
+<section id="content">
+    <header id="content-header">
+        Javastar - Java Level 1
+    </header>
+    <nav id="tabs">
+        <ul>
+            <li *ngFor="let tab of tabs" [class.active]="tab.active" (click)="selectTab(tab)">
+                {{ tab.name }}
+            </li>
+        </ul>
+    </nav>
+    <div class="tabs-content">
+        <div *ngFor="let tab of tabs" [id]="tab.target" class="tab-target" [class.targeted]="tab.active">
+            <div class="tab-content">
+                <div class="course-details" *ngIf="tab.name === 'Informatii Generale'">
+                    <h2>General Information</h2>
+                    <p>There will be 10 tests for the course, each test being worth 10 points, totaling 100 points for tests.</p>
+                    <p>There will be 2 homeworks, each worth 50 points, totaling 100 points for homework.</p>
+                    <p>The final project will be worth 100 points.</p>
+                    <p>Tests weight in final grade: 30%, Homework weight: 30%, Final Project: 40%.</p>
+                    <p>The course will be held every Tuesday at 18:30 and will last 2 hours, with a 20-minute break (1:40 of course + 20 minutes). In the first half, we will learn theory, followed by practice exercises and demonstrations.</p>
+                    <p>Tests will be available each week from the first day of the course, can be taken up to 3 times, with the highest grade recorded. Questions are randomly selected from a pool of 200 questions for each student. Responses will not be shown after the test, but will be discussed in the next course session for better understanding.</p>
+                    <p>We recommend using a webcam for natural discussions and better understanding of expressions, but it's optional if you're in a hurry or just woke up. It's better to attend without a camera than not at all.</p>
+
+                    <h3>Course Schedule</h3>
+                    <table class="schedule-table">
+                        <thead>
+                        <tr>
+                            <th>Lecture</th>
+                            <th>Topic</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Lecția 1</td>
+                            <td>Introducere în programare cu Java: De la zero la eroare zero</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 2</td>
+                            <td>Controlul fluxului de execuție: Cum să iei decizii în cod</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 3</td>
+                            <td>Clase, obiecte și interfețe: Construiește obiecte complexe și modularizate</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 4</td>
+                            <td>Tablouri, colecții și generics: Cum să gestionezi și să sortezi datele</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 5</td>
+                            <td>Managementul memoriei și gestionarea excepțiilor: Cum să îți menții aplicația în siguranță</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 6</td>
+                            <td>Lucrul cu string-uri și expresii regulate: Manipulează textul cu ușurință</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 7</td>
+                            <td>Concepte OOP și SOLID: Învață cum să gândești modular și extensibil</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 8</td>
+                            <td>Introducere în Design Patterns</td>
+                        </tr>
+                        <tr>
+                            <td>Lecția 9</td>
+                            <td>Enumerations și annotations: Adaugă informații contextuale în codul tău</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Homework and Final Project</h3>
+                    <p>There will be 2 homeworks, one after each month, and a final project after the last lesson where you will have to build a complex application.</p>
+
+                    <h3>Teacher</h3>
+                    <p>Dumitrache Geani</p>
+                </div>
+
+                <div class="grading-details" *ngIf="tab.name === 'Notare'">
+                    <h2>Grading Information</h2>
+                    <p><strong>Tests:</strong> 10 tests, each worth 10 points, totaling 100 points. Weight in final grade: 30%.</p>
+                    <p><strong>Homeworks:</strong> 2 homeworks, each worth 50 points, totaling 100 points. Weight in final grade: 30%.</p>
+                    <p><strong>Final Project:</strong> Worth 100 points. Weight in final grade: 40%.</p>
+
+                    <h3>Final Grade Calculation</h3>
+                    <table class="grade-table">
+                        <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Total Points</th>
+                            <th>Weight</th>
+                            <th>Contribution to Final Grade</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Tests</td>
+                            <td>100</td>
+                            <td>30%</td>
+                            <td>30 points</td>
+                        </tr>
+                        <tr>
+                            <td>Homeworks</td>
+                            <td>100</td>
+                            <td>30%</td>
+                            <td>30 points</td>
+                        </tr>
+                        <tr>
+                            <td>Final Project</td>
+                            <td>100</td>
+                            <td>40%</td>
+                            <td>40 points</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Final Grade Calculation Formula</h3>
+                    <p><code>Final Grade = (Tests Total Points * 0.3) + (Homeworks Total Points * 0.3) + (Final Project Points * 0.4)</code></p>
+                    <p>Note: You must pass each component (Tests, Homeworks, Final Project) to pass the course.</p>
+
+                    <h3>Visual Representation</h3>
+                    <div class="chart-container">
+                        <canvas id="gradeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

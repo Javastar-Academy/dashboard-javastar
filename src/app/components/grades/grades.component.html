@@ -1,0 +1,83 @@
+<app-dashboard></app-dashboard>
+<div class="grades-container">
+    <!-- Composite Grade -->
+    <div class="composite-grade">
+        <h2>Composite Grade: {{ compositeGrade.toFixed(2) }}%</h2>
+    </div>
+
+    <!-- Overview Section -->
+    <div class="overview-section">
+        <div class="grade-summary">
+            <div class="grade-item tests">
+                <h3>Tests</h3>
+                <div class="progress-bar">
+                    <div class="progress" [style.width.%]="testsGrade"></div>
+                </div>
+                <p>{{ testsGrade.toFixed(1) }}%</p>
+            </div>
+            <div class="grade-item homework">
+                <h3>Homework</h3>
+                <div class="progress-bar">
+                    <div class="progress" [style.width.%]="homeworkGrade"></div>
+                </div>
+                <p>{{ homeworkGrade.toFixed(1) }}%</p>
+            </div>
+            <div class="grade-item final-project">
+                <h3>Final Project</h3>
+                <div class="progress-bar">
+                    <div class="progress" [style.width.%]="finalProjectGrade"></div>
+                </div>
+                <p>{{ finalProjectGrade }}%</p>
+            </div>
+            <div class="grade-item extra-jobs">
+                <h3>Extra Jobs</h3>
+                <div class="progress-bar">
+                    <div class="progress" [style.width.%]="extraJobsGrade"></div>
+                </div>
+                <p>{{ extraJobsGrade.toFixed(1) }}%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Grades Section -->
+    <div class="detailed-grades">
+        <h3>Detailed Grades</h3>
+        <table class="grades-table">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Grade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let test of tests" class="test">
+                <td>Test</td>
+                <td>{{ test?.name }}</td>
+                <td><span>{{ test.grade }}%</span></td>
+            </tr>
+            <tr *ngFor="let homework of homeworks" class="homework">
+                <td>Homework</td>
+                <td>{{ homework?.name }}</td>
+                <td><span>{{ homework.grade }}%</span></td>
+            </tr>
+            <tr class="final-project">
+                <td>Final Project</td>
+                <td>{{ finalProject?.name }}</td>
+                <td><span>{{ finalProject?.grade }}%</span></td>
+            </tr>
+            <tr *ngFor="let job of extraJobs" class="extra-job">
+                <td>Extra Job</td>
+                <td>{{ job?.name }}</td>
+                <td><span>{{ job.grade }}%</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Graphical Representation -->
+    <div class="graphs-section">
+        <h3>Performance Graphs</h3>
+        <canvas id="gradesChart"></canvas>
+    </div>
+</div>
